@@ -4,6 +4,10 @@ A public, stateless source and sink for testing load-job completion handlers.
 Adapted from the small local Python fixture, with the same sample records and
 success/failure response bodies. Uses only the Python standard library.
 
+Public API: https://load-completion-dummy-api.vercel.app
+
+Vercel project: https://vercel.com/virajshah21s-projects/load-completion-dummy-api
+
 ## Routes
 
 | Method | Path | Result |
@@ -20,9 +24,9 @@ larger bodies return 413. Responses are not cached. No authentication is require
 
 ## QA workflow
 
-1. Set the extract URL to `https://YOUR-DEPLOYMENT/extract` with method GET.
+1. Set the extract URL to `https://load-completion-dummy-api.vercel.app/extract` with method GET.
 2. Pass the records through the workflow's transform.
-3. Set the HTTP load URL to `https://YOUR-DEPLOYMENT/load`, method POST, JSON body.
+3. Set the HTTP load URL to `https://load-completion-dummy-api.vercel.app/load`, method POST, JSON body.
 4. Run the workflow with the success completion action enabled and check its Mongo output.
 5. Change the load URL to `/load/fail`, run again, and check the error completion action.
 6. Also test failing loads with only success enabled and successful loads with only error enabled; neither should run a completion action.
